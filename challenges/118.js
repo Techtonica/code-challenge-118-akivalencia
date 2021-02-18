@@ -18,46 +18,29 @@ class Parrot {
           return (this.name + " want a cracker!");
         }
       }
-  
-  let polly = new Parrot("Polly");
-  polly.speak();
-  
-  let anonymous = new Parrot();
-  
-  anonymous.speak();
 
-
-console.log(polly.speak())
-console.log(anonymous.speak())
-
-//
-// Update the class definition so the example code runs as shown.
-//
-// Once that works, let's create a **subclass** of Parrot called ApprenticeParrot that is too tired from reading _You Don't Know JS_ to speak on command.
-//
-//
-// ```
-//
-// class ApprenticeParrot extends Parrot {
-//  // ...
-// }
-//
-// let apprentice = new ApprenticeParrot("Meg");
-// apprentice.speak();
-// // return "😴"
-//
-// ```
-//
-// #
-//
-// Bonus
-//
-//
-// After invoking the speak function 3 times, on the 4th invocation, `ApprenticeParrot` should wake up and respond normally.
-
+//subclass ApprenticeParrot
 
 class ApprenticeParrot extends Parrot {
- // ...
+  constructor(name){
+    super(name);
+    //create counter variable
+    this.count= 1;
+    //so that it increments when calling it
+  }
+  //overriding super class
+  speak() {
+    if (this.count < 4) {
+      // console.log(this.count);
+      //increment before return statement
+      this.count++
+      return "😴";
+    } else {
+      this.count++;
+      return `${this.name} want a cracker!`;
+    }
+  }
+
 }
 
 // let polly = new Parrot("Polly");
